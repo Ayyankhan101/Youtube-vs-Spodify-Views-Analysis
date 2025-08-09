@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv('Spotify Youtube Dataset.csv')
+    df = pd.read_csv('Spotify Youtube Dataset.csv.gz', compression='gzip')
     return df
 
 df = load_data()
@@ -49,5 +49,5 @@ st.pyplot(fig)
 
 st.header('Spotify Streams vs. YouTube Views')
 fig, ax = plt.subplots(figsize=(10, 6))
-sns.scatterplot(data=df_filtered, x='Stream', y='Views', ax=ax)
+sns.scatterplot(data=df_filtered, x='Stream', y='Views', ax=ax , alpha=0.6, edgecolor=None, s=50,hue='Danceability', palette='viridis')
 st.pyplot(fig)

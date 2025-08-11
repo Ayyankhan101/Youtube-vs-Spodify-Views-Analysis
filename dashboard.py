@@ -5,6 +5,8 @@ import seaborn as sns
 
 st.set_page_config(layout="wide")
 
+st.title('Youtube-vs-Spodify-Views-Analysis')
+
 @st.cache_data
 def load_data():
     df = pd.read_csv('Spotify Youtube Dataset.csv.gz', compression='gzip')
